@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.0)
+cmake_minimum_required(VERSION 3.12)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/ouster-sdk/cmake)
 include(DefaultBuildType)
@@ -190,11 +190,12 @@ install(
   RUNTIME DESTINATION bin
 )
 
+list(TRANSFORM _ouster_ros_INCLUDE_DIRS APPEND "/")
 install(
   DIRECTORY
     ${_ouster_ros_INCLUDE_DIRS}
   DESTINATION
-    include/${PROJECT_NAME}
+    include
 )
 
 install(
